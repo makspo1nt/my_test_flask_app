@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
 
 app = Flask(__name__)
 
@@ -16,6 +16,11 @@ def about():
 @app.route('/contacts')
 def contacts():
     return render_template('contacts.html')
+
+
+@app.route('/api')
+def api():
+    return jsonify({"message": "Hello pes!"})
 
 
 if __name__ == "__main__":
