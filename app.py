@@ -1,5 +1,4 @@
 from flask import Flask, render_template, jsonify, request
-import git
 
 app = Flask(__name__)
 
@@ -24,15 +23,6 @@ def contacts():
 @app.route('/api')
 def api():
     return jsonify({"message": "Hello pes!"})
-
-
-@app.route('/update_server')
-def webhook():
-    repo = git.Repo('./my_test_flask_app')
-    for remote in repo.remotes:
-        remote.fetch()
-    repo.git.reset('--hard', 'origin/master')
-    return 'Updated PythonAnywhere successfully', 200
 
 
 if __name__ == "__main__":
