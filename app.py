@@ -1,5 +1,4 @@
-from flask import Flask, render_template, jsonify
-import requests
+from flask import Flask, render_template, jsonify, request
 import git
 
 app = Flask(__name__)
